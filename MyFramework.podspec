@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name         = "MyFramework"
+  s.name         = "MyDemoFramework"
   s.version      = "1.0.0"
   s.summary      = "MyFramework library"
   s.description  = <<-DESC
