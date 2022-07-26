@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.swift_version = '5.3'
   s.source       = { :git => "https://github.com/quanlebbv/MyFramework.git", :tag => "#{s.version}" }
   s.ios.deployment_target = '10.0'
-  vendored_frameworks = "StarWarsKit.xcframework"
+  vendored_frameworks = "MyFramework.xcframework"
 end
