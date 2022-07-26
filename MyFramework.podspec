@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/quanlebbv/MyFramework.git", :tag => "#{s.version}" }
   
-  s.source_files = "ios/**/*.{h,m,mm,swift}"
+  s.source_files = "MyFramework/**/*.{h,m,mm,swift}"
   s.resource_bundles = {
      'MyFramework' => ['MyFramework/**/*.xib','MyFramework/**/*.xcassets']
   }
