@@ -15,4 +15,4 @@ xcodebuild archive \
 xcodebuild -create-xcframework \
     -framework archives/ios_devices.xcarchive/Products/Library/Frameworks/MyFramework.framework \
    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/MyFramework.framework \
-  -output MyFramework.xcframework
+  -output build/MyFramework.xcframework
