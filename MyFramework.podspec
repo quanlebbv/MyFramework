@@ -9,18 +9,18 @@ Pod::Spec.new do |s|
 
   s.homepage     = ""
   s.license      = { :type => 'Commercial', :text => '' }
-  s.author       = "Quayle"
+  s.author       = "Quanle"
 
   s.source = { :path => '.' }
 
   s.platform     = :ios, '13.0'
   s.swift_version = '5'
 
-  #s.source       = { :git => "http://EXAMPLE/HowtankWidget-Swift.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/quanlebbv/MyFramework.git", :tag => "#{s.version}" }
   
-  s.source_files  = "MyFramework/**/*.swift"
+  s.source_files = "ios/**/*.{h,m,mm,swift}"
   s.resource_bundles = {
-     'HowtankWidgetSwift' => ['MyFramework/**/*.xib','MyFramework/**/*.xcassets']
+     'MyFramework' => ['MyFramework/**/*.xib','MyFramework/**/*.xcassets']
   }
   s.ios.deployment_target = '10.0'
 
