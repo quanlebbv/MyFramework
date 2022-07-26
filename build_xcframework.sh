@@ -40,6 +40,7 @@ xcodebuild -create-xcframework \
    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/MyFramework.framework \
   -output ../MyFramework.xcframework
 
+# remove unused stuff
 rm -rf ./archives/**.xcarchive
 
 #makeing build
