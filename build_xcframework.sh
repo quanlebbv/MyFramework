@@ -42,6 +42,7 @@ xcodebuild -create-xcframework \
 
 rm -rf ./archives/**.xcarchive
 
+#makeing build
 cd ..
 git add -A
 git commit -m 'updated package.'
