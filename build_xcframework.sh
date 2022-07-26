@@ -40,7 +40,7 @@ xcodebuild -create-xcframework \
    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/MyFramework.framework \
   -output ../MyFramework.xcframework
 
-rm -rf ./build/**.xcarchive
+rm -rf ./archives/**.xcarchive
 
 cd ..
 git add -A
