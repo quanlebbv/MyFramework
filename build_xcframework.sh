@@ -19,6 +19,8 @@ newVersion=${major}.${minor}.${build}
 sed -i '' "s/${version}/${newVersion}/" ./build/package.json
 cat ./build/package.json
 
+rm -rf ./build/MyFramework.xcframework
+
 xcodebuild archive \
   -scheme MyFramework \
   -sdk iphoneos \
