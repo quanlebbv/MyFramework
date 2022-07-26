@@ -1,3 +1,24 @@
+version=$(node -p "require('./build/package.json').version") 
+echo "current version is ${version}."
+
+major=0
+minor=0
+build=0
+
+# break down the version number into it's components
+regex="([0-9]+).([0-9]+).([0-9]+)"
+if [[ $version =~ $regex ]]; then
+  major="${BASH_REMATCH[1]}"
+  minor="${BASH_REMATCH[2]}"
+  build="${BASH_REMATCH[3]}"
+  build=$(echo $build + 1 | bc)
+fi
+
+newVersion=${major}.${minor}.${build}
+
+sed -i '' "s/${version}/${newVersion}/" ./build/package.json
+cat ./build/package.json
+
 xcodebuild archive \
   -scheme MyFramework \
   -sdk iphoneos \
@@ -17,4 +38,9 @@ xcodebuild -create-xcframework \
    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/MyFramework.framework \
   -output build/MyFramework.xcframework
 
-rm -rf archives  
+rm -rf ./build/**.xcarchive
+
+cd ./build
+git add -A
+git commit -m 'updated package.'
+git push
