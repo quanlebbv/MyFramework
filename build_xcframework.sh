@@ -1,4 +1,4 @@
-version=$(node -p "require('../my-framework/package.json').version") 
+version=$(node -p "require('../package.json').version") 
 echo "current version is ${version}."
 
 major=0
@@ -16,8 +16,9 @@ fi
 
 newVersion=${major}.${minor}.${build}
 
-sed -i '' "s/${version}/${newVersion}/" .../my-framework/package.json
-cat ../my-framework/package.json
+sed -i '' "s/${version}/${newVersion}/" ../package.json
+sed -i '' "s/'${version}'/'${newVersion}'/" ../my-framework.podspec
+cat ../package.json
 
 rm -rf ../MyFramework.xcframework
 
@@ -45,6 +46,4 @@ rm -rf ./archives/**.xcarchive
 
 #makeing build
 cd ..
-git add -A
-git commit -m 'updated package.'
-git push
+sh cocoapod.sh
