@@ -16,7 +16,7 @@ jobs:
 
     - name: call the other repo
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: "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"
         EVENT: "making-framework"
         ORG: "quanlebbv"
         REPO: "MyFrameworkDistribution"
