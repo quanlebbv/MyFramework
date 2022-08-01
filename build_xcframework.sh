@@ -1,4 +1,4 @@
-version=$(node -p "require('../package.json').version") 
+version=$(node -p "require('../my-framework/package.json').version") 
 echo "current version is ${version}."
 
 major=0
@@ -16,8 +16,8 @@ fi
 
 newVersion=${major}.${minor}.${build}
 
-sed -i '' "s/${version}/${newVersion}/" ../package.json
-cat ../package.json
+sed -i '' "s/${version}/${newVersion}/" .../my-framework/package.json
+cat ../my-framework/package.json
 
 rm -rf ../MyFramework.xcframework
 
