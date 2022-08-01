@@ -16,9 +16,9 @@ jobs:
 
     - name: call the other repo
       env:
-        GITHUB_TOKEN: "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"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         EVENT: "making-framework"
         ORG: "quanlebbv"
         REPO: "MyFrameworkDistribution"
       run: |
-        curl -d "{\"event_type\": \"making-framework\"}" -H "Content-Type: application/json" -H "Authorization: token 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" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches"
+        curl -d "{\"event_type\": \"making-framework\"}" -H "Content-Type: application/json" -H "Authorization: ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches"
