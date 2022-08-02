@@ -14,11 +14,11 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: call the other repo
+    - name: Trigger to build framework
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         EVENT: making-framework
         ORG: quanlebbv
         REPO: MyFrameworkDistribution
       run: |
-        curl -X POST https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches -H "Accept: application/vnd.github+json" -H "Authorization: token $GITHUB_TOKEN" -d '{"event_type":"making-framework"}'
+        curl -X POST https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches -H "Accept: application/vnd.github+json" -H "Authorization: token ${env.GITHUB_TOKEN}" -d '{"event_type":"making-framework"}'
