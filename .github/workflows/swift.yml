@@ -16,7 +16,7 @@ jobs:
 
     - name: call the other repo
       env:
-        GITHUB_TOKEN: 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
+        GITHUB_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
         EVENT: making-framework
         ORG: quanlebbv
         REPO: MyFrameworkDistribution
@@ -24,6 +24,6 @@ jobs:
         curl \
           -X POST \
           -H "Accept: application/vnd.github.v3+json" \
-          -H "Authorization: token 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" \
-          https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
-          -d '{"event_type":"making-framework"}'
+          -H "Authorization: token $GITHUB_TOKEN" \
+          https://api.github.com/repos/$ORG/$REPO/dispatches \
+          -d '{"event_type":"$EVENT"}'
