@@ -16,12 +16,12 @@ jobs:
 
     - name: call the other repo
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         EVENT: making-framework
         ORG: quanlebbv
         REPO: MyFrameworkDistribution
       run: |
         curl -X POST https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACCESS_TOKEN }} \
+          -u $GITHUB_TOKEN \
           --data '{"event_type": "making-framework"}'
