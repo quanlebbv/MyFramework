@@ -1,4 +1,4 @@
-version=$(node -p "require('./build/package.json').version") 
+version=$(node -p "require('../package.json').version") 
 echo "current version is ${version}."
 
 major=0
@@ -16,10 +16,11 @@ fi
 
 newVersion=${major}.${minor}.${build}
 
-sed -i '' "s/${version}/${newVersion}/" ./build/package.json
-cat ./build/package.json
+sed -i '' "s/${version}/${newVersion}/" ../package.json
+sed -i '' "s/'${version}'/'${newVersion}'/" ../my-framework.podspec
+cat ../package.json
 
-rm -rf ./build/MyFramework.xcframework
+rm -rf ../MyFramework.xcframework
 
 xcodebuild archive \
   -scheme MyFramework \
@@ -38,11 +39,7 @@ xcodebuild archive \
 xcodebuild -create-xcframework \
     -framework archives/ios_devices.xcarchive/Products/Library/Frameworks/MyFramework.framework \
    -framework archives/ios_simulators.xcarchive/Products/Library/Frameworks/MyFramework.framework \
-  -output build/MyFramework.xcframework
+  -output ../MyFramework.xcframework
 
-rm -rf ./build/**.xcarchive
-
-cd ..
-git add -A
-git commit -m 'updated package.'
-git push
+# remove unused
+rm -rf ./archives/**.xcarchive

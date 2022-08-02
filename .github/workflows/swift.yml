@@ -7,13 +7,18 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Checkout submodules
-      run: git submodule update --init --recursive
-    - name: Run shell
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Trigger to build framework
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        EVENT: making-framework
+        ORG: quanlebbv
+        REPO: MyFrameworkDistribution
       run: |
-        sh ./build_xcframework.sh
+        curl -X POST https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches -H "Accept: application/vnd.github+json" -H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" -d '{"event_type":"making-framework"}'
