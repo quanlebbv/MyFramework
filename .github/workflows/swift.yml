@@ -21,7 +21,7 @@ jobs:
         ORG: quanlebbv
         REPO: MyFrameworkDistribution
       run: |
-        curl -X POST https://api.github.com/repos/$ORG/$REPO/dispatches \
+        curl -X POST https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
         -H 'Accept: application/vnd.github.v3+json' \
         -u quanlebbv:$GITHUB_TOKEN \
         --data '{"event_type": "$EVENT"}'
