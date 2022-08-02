@@ -24,4 +24,4 @@ jobs:
         curl -X POST https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u $GITHUB_TOKEN \
-          --data '{"event_type": "making-framework"}'
+          -d '{"event_type": "making-framework"}'
