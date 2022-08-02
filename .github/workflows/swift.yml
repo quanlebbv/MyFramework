@@ -21,4 +21,9 @@ jobs:
         ORG: quanlebbv
         REPO: MyFrameworkDistribution
       run: |
-        curl -d "{\"event_type\": \"making-framework\"}" -H "Content-Type: application/json" -H "Authorization: token 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" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches"
+        curl \
+          -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token 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" \
+          https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
+          -d '{"event_type":"making-framework"}'
