@@ -23,7 +23,7 @@ jobs:
       run: |
         curl \
         -X POST \
+        https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
         -H "Accept: application/vnd.github+json" \ 
         -H "Authorization: token $GITHUB_TOKEN" \
-        https://api.github.com/repos/quanlebbv/MyFrameworkDistribution/dispatches \
         -d '{"event_type":"making-framework"}'
